@@ -1,2 +1,4 @@
-package racingcar.exception;public class errorMessage {
+package racingcar.exception;
+
+public class ErrorMessage {
 }

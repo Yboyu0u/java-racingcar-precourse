@@ -94,7 +94,6 @@ jun : -----
 최종 우승자 : pobi, jun
 ```
 
-<br>
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-racingcar-precourse/blob/master/LICENSE) licensed.

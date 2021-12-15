@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class Car {
     private final String name;
@@ -9,4 +9,5 @@ public class Car {
     }
 
     // 추가 기능 구현
+
 }

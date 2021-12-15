@@ -1,2 +1,4 @@
-package racingcar.validation;public class GlobalValidation {
+package racingcar.validation;
+
+public class GlobalValidation {
 }

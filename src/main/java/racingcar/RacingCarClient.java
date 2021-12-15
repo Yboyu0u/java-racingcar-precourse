@@ -1,2 +1,4 @@
-package racingcar;public class RacingCarClient {
+package racingcar;
+
+public class RacingCarClient {
 }
