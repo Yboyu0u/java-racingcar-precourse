@@ -10,4 +10,17 @@ public class Car {
 
     // 추가 기능 구현
 
+    public void addPosition(int randomNumber) {
+        if(randomNumber >= 4) {
+            position++;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }

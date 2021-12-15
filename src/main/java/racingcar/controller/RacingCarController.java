@@ -1,6 +1,9 @@
 package racingcar.controller;
 
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 import racingcar.exception.dto.ErrorResponse;
 import racingcar.message.Message;
 import racingcar.message.dto.ResponseMessage;
@@ -15,30 +18,32 @@ public class RacingCarController {
 	}
 
 	public void postCarNames() {
-
 		try {
 			ResponseMessage.of(Message.ENTER_CAR_NAMES.getMessage());
-			racingCarService.postCarNames(Console.readLine());
+			postNumberOfRacingAndTakeCars(racingCarService.postCarNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
 			ErrorResponse.of(e.getMessage());
 			postCarNames();
 		}
 	}
 
-	public void postNumberOfRacing() {
-
+	private void postNumberOfRacingAndTakeCars(List<Car> cars) {
 		try {
 			ResponseMessage.of(Message.ENTER_NUMBER_OF_RACING.getMessage());
-			racingCarService.postNumberOfRacing(Console.readLine());
+			racingCarService.postNumberOfRacing(Console.readLine(),cars);
 		} catch (IllegalArgumentException e) {
 			ErrorResponse.of(e.getMessage());
-			postNumberOfRacing();
 		}
 	}
 
 	public void getRacingResult() {
 		ResponseMessage.of(Message.PRINT_RESULT.getMessage());
 		racingCarService.getRacingResult();
+	}
+
+	public void getWinner() {
+		ResponseMessage.of(Message.PRINT_WINNER.getMessage());
+		racingCarService.getWinner();
 	}
 
 }

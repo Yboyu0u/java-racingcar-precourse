@@ -1,7 +1,9 @@
 package racingcar.domain;
 
-import java.util.Arrays;
 import java.util.List;
+
+import racingcar.message.dto.ResponseMessage;
+import racingcar.util.RandomUtil;
 
 public class Cars {
 	private static final String CAR_DIVISOR = ",";
@@ -9,14 +11,25 @@ public class Cars {
 	private List<Car> carList;
 	private int numberOfRacing;
 
-	public void addCarInCarList(String cars) {
-		Arrays.stream(cars.split(CAR_DIVISOR))
-			.forEach(car -> carList.add(new Car(car)));
+	public Cars(List<Car> cars, int numberOfRacing) {
+		this.carList = cars;
+		this.numberOfRacing = numberOfRacing;
 	}
 
-	public void canSetNumberOfRacing(int number) {
-		if(number > 0) {
-			numberOfRacing = number;
+	public void playRacing() {
+		for (int i = 0; i < numberOfRacing; i++) {
+			playARacing();
+			ResponseMessage.printResultOneRacing(carList);
+			ResponseMessage.printLineBreaker();
 		}
+	}
+
+	public void playARacing() {
+		carList.stream()
+			.forEach(car -> car.addPosition(RandomUtil.generateRandomNumber()));
+	}
+
+	public void getWinnerInCarList() {
+		// position이 가장 많은 차들이 우승
 	}
 }
