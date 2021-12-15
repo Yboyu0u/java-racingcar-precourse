@@ -1,9 +1,5 @@
 package racingcar.validation;
 
-import java.util.List;
-
-import racingcar.domain.Car;
-
 public class GlobalValidation {
 	private static final int ZERO_LENGTH = 0;
 	private static final String SPACE = " ";

@@ -33,18 +33,7 @@ public class ResponseMessage {
 	}
 
 	public static void printWinner(List<String> winners) {
-		System.out.print(Message.PRINT_WINNER.getMessage());
-
-		for (int i = 0; i < winners.size(); i++) {
-			System.out.print(winners.get(i));
-			checkFinalWinner(i, winners.size());
-		}
-	}
-
-	private static void checkFinalWinner(int idx, int winnerSize) {
-		if (idx != winnerSize - 1) {
-			System.out.print(WINNER_DIVISOR);
-		}
+		System.out.println(Message.PRINT_WINNER.getMessage()+ String.join(",",winners));
 	}
 
 	public static void printLineBreaker() {
