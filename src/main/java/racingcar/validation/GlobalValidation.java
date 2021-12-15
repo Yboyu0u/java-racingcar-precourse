@@ -8,6 +8,8 @@ public class GlobalValidation {
 	private static final int LIMIT_CAR_NAME_LENGTH = 5;
 	private static final int MIN_CARS_LENGTH = 2;
 	private static final int ZERO_LENGTH = 0;
+	private static final String SPACE = " ";
+	private static final String NULL = "";
 
 	private static final String INPUT_IS_BLANK_ERROR = "입력 값은 빈 값일 수 없습니다.";
 	private static final String CAR_IS_UNDER_TWO_ERROR = "자동차는 두 대 이상이여야 합니다.";
@@ -18,7 +20,7 @@ public class GlobalValidation {
 
 	// 입력이 빈 값으로 들어오는 경우   공통
 	public static void validateInputIsBlank(String input) {
-		if(input.replaceAll(" ","").length() == ZERO_LENGTH) {
+		if(input.replaceAll(SPACE,NULL).length() == ZERO_LENGTH) {
 			throw new IllegalArgumentException(INPUT_IS_BLANK_ERROR);
 		}
 	}

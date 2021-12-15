@@ -12,6 +12,8 @@ import racingcar.validation.validator.CarsValidator;
 import racingcar.validation.validator.InputNumberOfRacingValidator;
 
 public class RacingCarService {
+	private static final String SPACE = " ";
+	private static final String NULL = "";
 	private static final String CAR_DIVISOR = ",";
 
 	private RacingResultMachine racingResultMachine;
@@ -39,7 +41,7 @@ public class RacingCarService {
 
 		//TODO: 공백 밀어서 넣기
 		Arrays.stream(cars.split(CAR_DIVISOR))
-			.forEach(car -> carList.add(new Car(car)));
+			.forEach(car -> carList.add(new Car(car.replaceAll(SPACE,NULL))));
 
 		CarsValidator.validateInputCars(carList);
 
