@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
@@ -7,8 +9,6 @@ public class Car implements Comparable<Car> {
     public Car(String name) {
         this.name = name;
     }
-
-    // 추가 기능 구현
 
     public void addPosition(int randomNumber) {
         if(randomNumber >= 4) {
@@ -27,5 +27,20 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car o) {
         return o.position - this.position;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Car car = (Car)o;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
