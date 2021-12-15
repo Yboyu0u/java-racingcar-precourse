@@ -39,9 +39,8 @@ public class RacingCarService {
 	private List<Car> makeCarList(String cars) {
 		List<Car> carList = new ArrayList<>();
 
-		//TODO: 공백 밀어서 넣기
 		Arrays.stream(cars.split(CAR_DIVISOR))
-			.forEach(car -> carList.add(new Car(car.replaceAll(SPACE,NULL))));
+			.forEach(car -> carList.add(new Car(car.replaceAll(SPACE, NULL))));
 
 		CarsValidator.validateInputCars(carList);
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.exception.dto.ErrorResponse;
+import racingcar.message.dto.ResponseError;
 import racingcar.message.Message;
 import racingcar.message.dto.ResponseMessage;
 import racingcar.service.RacingCarService;
@@ -22,7 +22,7 @@ public class RacingCarController {
 			ResponseMessage.of(Message.ENTER_CAR_NAMES.getMessage());
 			postNumberOfRacingAndTakeCars(racingCarService.postCarNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
-			ErrorResponse.of(e.getMessage());
+			ResponseError.of(e.getMessage());
 			postCarNames();
 		}
 	}
@@ -30,9 +30,10 @@ public class RacingCarController {
 	private void postNumberOfRacingAndTakeCars(List<Car> cars) {
 		try {
 			ResponseMessage.of(Message.ENTER_NUMBER_OF_RACING.getMessage());
-			racingCarService.postNumberOfRacing(Console.readLine(),cars);
+			racingCarService.postNumberOfRacing(Console.readLine(), cars);
 		} catch (IllegalArgumentException e) {
-			ErrorResponse.of(e.getMessage());
+			ResponseError.of(e.getMessage());
+			postNumberOfRacingAndTakeCars(cars);
 		}
 	}
 

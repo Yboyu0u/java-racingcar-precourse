@@ -15,7 +15,7 @@ public class ResponseMessage {
 	}
 
 	public static void printResultOneRacing(List<Car> carList) {
-		carList.stream().forEach(car -> printResultEachCar(car.getName(),car.getPosition()));
+		carList.stream().forEach(car -> printResultEachCar(car.getName(), car.getPosition()));
 	}
 
 	private static void printResultEachCar(String carName, int position) {
@@ -25,7 +25,7 @@ public class ResponseMessage {
 	private static String makePositionSignByPosition(int position) {
 		StringBuilder positionSign = new StringBuilder();
 
-		for(int i=0; i<position; i++) {
+		for (int i = 0; i < position; i++) {
 			positionSign.append(POSITION_SIGN_UNIT);
 		}
 
@@ -35,14 +35,14 @@ public class ResponseMessage {
 	public static void printWinner(List<String> winners) {
 		System.out.print(Message.PRINT_WINNER.getMessage());
 
-		for(int i=0; i<winners.size(); i++) {
+		for (int i = 0; i < winners.size(); i++) {
 			System.out.print(winners.get(i));
 			checkFinalWinner(i, winners.size());
 		}
 	}
 
 	private static void checkFinalWinner(int idx, int winnerSize) {
-		if(idx != winnerSize-1) {
+		if (idx != winnerSize - 1) {
 			System.out.print(WINNER_DIVISOR);
 		}
 	}

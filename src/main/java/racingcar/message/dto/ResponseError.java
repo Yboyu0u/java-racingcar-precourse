@@ -1,6 +1,6 @@
-package racingcar.exception.dto;
+package racingcar.message.dto;
 
-public class ErrorResponse {
+public class ResponseError {
 	private static final String ERROR = "[ERROR] ";
 
 	public static void of(String errorMessage) {
