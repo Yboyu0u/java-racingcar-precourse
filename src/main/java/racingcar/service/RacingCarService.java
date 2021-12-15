@@ -7,7 +7,6 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingResultMachine;
-import racingcar.validation.GlobalValidation;
 import racingcar.validation.validator.CarsValidator;
 import racingcar.validation.validator.InputNumberOfRacingValidator;
 
@@ -19,7 +18,7 @@ public class RacingCarService {
 	private RacingResultMachine racingResultMachine;
 
 	public List<Car> postCarNames(String inputString) {
-		GlobalValidation.validateInputIsBlank(inputString);
+		CarsValidator.validateInputCars(inputString);
 		return makeCarList(inputString);
 	}
 

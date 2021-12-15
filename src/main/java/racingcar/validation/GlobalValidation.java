@@ -5,51 +5,13 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class GlobalValidation {
-	private static final int LIMIT_CAR_NAME_LENGTH = 5;
-	private static final int MIN_CARS_LENGTH = 2;
 	private static final int ZERO_LENGTH = 0;
 	private static final String SPACE = " ";
 	private static final String NULL = "";
 
-	private static final String INPUT_IS_BLANK_ERROR = "입력 값은 빈 값일 수 없습니다.";
-	private static final String CAR_IS_UNDER_TWO_ERROR = "자동차는 두 대 이상이여야 합니다.";
-	private static final String CAR_IS_DISTINCT_ERROR = "자동차 이름은 중복될 수 없습니다.";
-	private static final String CAR_NAME_IS_OVER_FIVE_ERROR = "자동차 이름은 5자 이하여야 합니다.";
-	private static final String NUMBER_OR_RACING_IS_NOT_NATURAL_NUMBER_ERROR = "시도 횟수는 자연수여야 합니다.";
-
-	public static void validateInputIsBlank(String input) {
+	public static void validateInputIsBlank(String input, String errorMessage) {
 		if (input.replaceAll(SPACE, NULL).length() == ZERO_LENGTH) {
-			throw new IllegalArgumentException(INPUT_IS_BLANK_ERROR);
-		}
-	}
-
-	public static void validateCarsAreUnderTwo(List<Car> cars) {
-		if (cars.size() < MIN_CARS_LENGTH) {
-			throw new IllegalArgumentException(CAR_IS_UNDER_TWO_ERROR);
-		}
-	}
-
-	public static void validateCarIsDistinct(List<Car> cars) {
-		if (cars.stream().distinct().count() != cars.size()) {
-			throw new IllegalArgumentException(CAR_IS_DISTINCT_ERROR);
-		}
-	}
-
-	public static void validateCarNameIsOver(String name) {
-		if (name.length() > LIMIT_CAR_NAME_LENGTH) {
-			throw new IllegalArgumentException(CAR_NAME_IS_OVER_FIVE_ERROR);
-		}
-	}
-
-	public static void validateNumberOfRacingIsNaturalNumber(String input) {
-		for (char c : input.toCharArray()) {
-			if (!Character.isDigit(c)) {
-				throw new IllegalArgumentException(NUMBER_OR_RACING_IS_NOT_NATURAL_NUMBER_ERROR);
-			}
-		}
-
-		if (Integer.parseInt(input) == ZERO_LENGTH) {
-			throw new IllegalArgumentException(NUMBER_OR_RACING_IS_NOT_NATURAL_NUMBER_ERROR);
+			throw new IllegalArgumentException(errorMessage);
 		}
 	}
 }
