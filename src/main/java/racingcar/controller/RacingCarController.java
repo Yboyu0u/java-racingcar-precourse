@@ -37,12 +37,12 @@ public class RacingCarController {
 	}
 
 	public void getRacingResult() {
+		ResponseMessage.printLineBreaker();
 		ResponseMessage.of(Message.PRINT_RESULT.getMessage());
 		racingCarService.getRacingResult();
 	}
 
 	public void getWinner() {
-		ResponseMessage.of(Message.PRINT_WINNER.getMessage());
 		racingCarService.getWinner();
 	}
 

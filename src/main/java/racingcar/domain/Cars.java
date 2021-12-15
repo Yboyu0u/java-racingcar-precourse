@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.message.dto.ResponseMessage;
 import racingcar.util.RandomUtil;
@@ -30,6 +32,14 @@ public class Cars {
 	}
 
 	public void getWinnerInCarList() {
-		// position이 가장 많은 차들이 우승
+		Collections.sort(carList);
+		decideWinnerList();
+	}
+
+	private void decideWinnerList() {
+		ResponseMessage.printWinner(carList.stream()
+			.filter(car -> car.getPosition() == carList.get(0).getPosition())
+			.map(car -> car.getName())
+			.collect(Collectors.toList()));
 	}
 }

@@ -28,7 +28,7 @@ public class RacingCarService {
 	}
 
 	public void getWinner() {
-
+		racingResultMachine.getWinner();
 	}
 
 	private List<Car> makeCarList(String cars) {

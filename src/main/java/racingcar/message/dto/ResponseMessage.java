@@ -3,10 +3,12 @@ package racingcar.message.dto;
 import java.util.List;
 
 import racingcar.domain.Car;
+import racingcar.message.Message;
 
 public class ResponseMessage {
 	private static final String POSITION_SIGN_UNIT = "-";
 	private static final String NAME_POSITION_DIVISOR = " : ";
+	private static final String WINNER_DIVISOR = ", ";
 
 	public static void of(String message) {
 		System.out.println(message);
@@ -31,7 +33,18 @@ public class ResponseMessage {
 	}
 
 	public static void printWinner(List<String> winners) {
+		System.out.print(Message.PRINT_WINNER.getMessage());
 
+		for(int i=0; i<winners.size(); i++) {
+			System.out.print(winners.get(i));
+			checkFinalWinner(i, winners.size());
+		}
+	}
+
+	private static void checkFinalWinner(int idx, int winnerSize) {
+		if(idx != winnerSize-1) {
+			System.out.print(WINNER_DIVISOR);
+		}
 	}
 
 	public static void printLineBreaker() {
